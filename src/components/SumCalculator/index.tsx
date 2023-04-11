@@ -14,36 +14,44 @@ export default function SumCalculator() {
     }
   };
 
-  const MAX_RUNNING_TIME = 3000;
+  //     if (elapsedTime > MAX_RUNNING_TIME) {
+  //       throw new Error("程式運行時間超過 3 秒");
 
-  const checkRunningTime = (startTime: number) => {
-    const currentTime = new Date().getTime();
-    const elapsedTime = currentTime - startTime;
-    if (elapsedTime > MAX_RUNNING_TIME) {
-      throw new Error("程式運行時間超過 3 秒");
-    }
-  };
+//   const MAX_RUNNING_TIME = 3000;
 
-  const handleCalculate = () => {
-    if (n === "") {
-      return;
-    }
-    
-    setIsLoading(true);
-
+  const calculateSum = () => {
     let currentSum = 0;
     let sign = 1;
-    const startTime = new Date().getTime();
 
     for (let i = 1; i <= Number(n); i++) {
       currentSum += sign * i;
       sign *= -1;
-
-      checkRunningTime(startTime);
     }
 
-    setIsLoading(false);
-    setSum(currentSum);
+    return currentSum;
+  };
+
+  const handleCalculate = async () => {
+    if (n === "") {
+      return;
+    }
+
+    setIsLoading(true);
+    setSum(null);
+
+    try {
+        const result = await Promise.race([
+            calculateSum(),
+            new Promise((_, reject) =>
+              setTimeout(() => reject(new Error("Timeout")), 3000)
+            ),
+          ]);
+          setIsLoading(false);
+          setSum(result);
+    } catch (error: any) {
+      setIsLoading(false);
+      alert(error.message);
+    }
   };
 
   return (
