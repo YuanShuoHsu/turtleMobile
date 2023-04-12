@@ -1,0 +1,33 @@
+.lottery {
+  position: relative;
+  padding: 20px;
+  text-align: left;
+
+  &__title {
+  }
+
+  &__description {
+  }
+
+  &__list {
+    &-item {
+    }
+  }
+
+  &__button {
+    padding: 0 10px;
+    width: 120px;
+    height: 40px;
+    background: #389344;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
