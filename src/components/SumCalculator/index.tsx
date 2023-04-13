@@ -4,8 +4,19 @@ import styles from "./index.module.scss";
 export default function SumCalculator() {
   const [n, setN] = useState<string>("");
   const [sum, setSum] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>("");
+
+  const answer = `1+2-3+4-5+6-......+或-N
+= (-1+2-3+4-5+6-......+或-N) + 2
+An = ((-1)^n) * n
+Sn = (-1)^n * ⌈n/2⌉ + 2
+
+const calculateSum = () => {
+  const ceilingOfHalfN = Math.ceil(Number(n) / 2);
+  const Sn = Math.pow(-1, Number(n)) * ceilingOfHalfN;
+  const calculatedSum = Sn + 2;
+
+  return calculatedSum
+};`;
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
@@ -15,21 +26,12 @@ export default function SumCalculator() {
     }
   };
 
-  //     if (elapsedTime > MAX_RUNNING_TIME) {
-  //       throw new Error("程式運行時間超過 3 秒");
-
-  //   const MAX_RUNNING_TIME = 3000;
-
   const calculateSum = () => {
-    let currentSum = 0;
-    let sign = 1;
+    const ceilingOfHalfN = Math.ceil(Number(n) / 2);
+    const Sn = Math.pow(-1, Number(n)) * ceilingOfHalfN;
+    const calculatedSum = Sn + 2;
 
-    for (let i = 1; i <= Number(n); i++) {
-      currentSum += sign * i;
-      sign *= -1;
-    }
-
-    return currentSum;
+    return calculatedSum;
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -39,24 +41,8 @@ export default function SumCalculator() {
       return;
     }
 
-    setIsLoading(true);
-    setSum(null);
-
-    try {
-      setIsLoading(false);
-      setSum(calculateSum());
-    } catch (error: any) {
-      setIsLoading(false);
-      alert(error.message);
-    }
+    setSum(calculateSum());
   };
-
-  // const result = await Promise.race([
-  // calculateSum(),
-  // new Promise((_, reject) =>
-  // setTimeout(() => reject(new Error("Timeout")), 3000)
-  // ),
-  // ]);
 
   return (
     <form onSubmit={handleSubmit} className={styles["sum-calculator"]}>
@@ -65,10 +51,12 @@ export default function SumCalculator() {
         寫一個函式計算下列公式之總和：
       </p>
       <p className={styles["sum-calculator__formula"]}>
-        1+2-3+4-5+6-.....+ 或 - N
+        1+2-3+4-5+6-......+ 或 - N
       </p>
       <p className={styles["sum-calculator__note"]}>（N 會是正整數）</p>
-
+      <pre className={styles["sum-calculator__code"]}>
+        <code className={styles["sum-calculator__code-text"]}>{answer}</code>
+      </pre>
       <div className={styles["sum-calculator__input-group"]}>
         <label className={styles["sum-calculator__label"]} htmlFor="N-input">
           N：
@@ -82,16 +70,14 @@ export default function SumCalculator() {
             placeholder="請輸入正整數"
             onChange={handleInputChange}
           />
-          <button
-            className={styles["sum-calculator__button"]}
-            // onClick={handleCalculate}
-            disabled={isLoading}
-          >
-            {isLoading ? "Loading..." : "Calculate"}
+          <button className={styles["sum-calculator__button"]} type="submit">
+            {"計算"}
           </button>
         </div>
       </div>
-      {sum && <p className={styles["sum-calculator__result"]}>總和: {sum}</p>}
+      {sum !== null && (
+        <p className={styles["sum-calculator__result"]}>總和：{sum}</p>
+      )}
     </form>
   );
 }
