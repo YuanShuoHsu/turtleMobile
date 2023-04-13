@@ -1,4 +1,4 @@
-import { MouseEvent, WheelEvent } from "react";
+import { MouseEvent } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./index.module.scss";
 

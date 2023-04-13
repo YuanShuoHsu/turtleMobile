@@ -1,0 +1,15 @@
+.phone {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  background: #666;
+  border-radius: 50px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: #000;
+    border-radius: 48px;
+  }
+}
