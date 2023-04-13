@@ -1,23 +1,32 @@
 import { useState } from "react";
 import styles from "./index.module.scss";
 
-interface Prize {
-  name: string;
-  count: number;
-}
+type Prize = 1 | 2 | 3 | 4 | 5; // 宣告 Prize 型別為 1~5 中的一個數字
+type Lottery = Prize[]; // 宣告 Lottery 型別為 Prize 型別的數組
 
-const prizes: Prize[] = [
-  { name: "1 獎", count: 1 },
-  { name: "2 獎", count: 1 },
-  { name: "3 獎", count: 3 },
-  { name: "4 獎", count: 5 },
-  { name: "5 獎", count: 9 },
-];
+const prizes: Lottery = [1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5]; // 宣告獎項數組
 
 export default function Lottery() {
-  const [selectedPrizes, setSelectedPrizes] = useState<Prize[]>([]);
+  const [result, setResult] = useState<Prize[]>([]); // 宣告結果數組的狀態
+  const [isDone, setIsDone] = useState<boolean>(false); // 宣告是否完成抽獎的狀態
 
-  const selectPrize = () => {
+  const handleLottery = (): void => {
+    if (prizes.length > 0) {
+      const randomIndex = Math.floor(Math.random() * prizes.length); // 隨機取得一個數字，範圍為 0 ~ 獎項數組長度減 1
+      const prize = prizes[randomIndex]; // 根據隨機取得的索引值從獎項數組中取得獎項
+      setResult((prevResult) => [...prevResult, prize]); // 將取得的獎項加入結果數組中
+      prizes.splice(randomIndex, 1); // 從獎項數組中刪除已經被抽中的獎項
+    }
+
+    if (prizes.length === 0) {
+      setIsDone(true); // 當獎項數組被抽完時，設置抽獎完成的狀態為 true
+    }
+  };
+
+  const handleReset = (): void => {
+    setResult([]); // 重置結果數組
+    setIsDone(false); // 重置抽獎完成的狀態
+    prizes.push(...result); // 將已經抽出的獎項重新加入獎項數組中，以便下一次抽獎
   };
 
   return (
@@ -36,16 +45,29 @@ export default function Lottery() {
         <li className={styles["lottery__list-item"]}>4 獎中獎機率為 18%</li>
         <li className={styles["lottery__list-item"]}>5 獎中獎機率為 25%</li>
       </ul>
-      <button className={styles["lottery__button"]} onClick={selectPrize}>
+      <p>如果有中獎機率代表有可能抽不到</p>
+      {/* <button className={styles["lottery__button"]} onClick={selectPrize}>
         抽獎
-      </button>
-      <ul className={styles["lottery__list"]}>
+      </button> */}
+      {!isDone && (
+        <>
+          <button onClick={handleLottery}>抽獎</button>
+          <p>已抽出的獎項：{result.join(', ')}</p>
+        </>
+      )}
+      {isDone && (
+        <>
+          <p>恭喜您已經抽完所有獎項！</p>
+          <button onClick={handleReset}>重新抽獎</button>
+        </>
+      )}
+      {/* <ul className={styles["lottery__list"]}>
         {selectedPrizes.map((prize, index) => (
           <li className={styles["lottery__list-item"]} key={index}>
             {prize.name}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }
