@@ -30,15 +30,15 @@ export default function Lottery() {
   };
 
   return (
-    <div className={styles["lottery"]}>
-      <h2 className={styles["lottery__title"]}>Lottery</h2>
-      <p className={styles["lottery__description"]}>
+    <div className={styles.lottery}>
+      <h2 className={styles.lottery__title}>Lottery</h2>
+      <p className={styles.lottery__description}>
         抽抽樂總共有五種獎項，1, 2 獎各只有一個，3 獎有 3 個，4 獎有 5 個，5
         獎有 9 個，請寫出一個程式可以<strong>「隨機」</strong>的取得
         <strong>「不重複」</strong>的禮物，
       </p>
-      <p className={styles["lottery__description"]}>且：</p>
-      <ul className={styles["lottery__list"]}>
+      <p className={styles.lottery__description}>且：</p>
+      <ul className={styles.lottery__list}>
         <li className={styles["lottery__list-item"]}>1 獎中獎機率為 0.1%</li>
         <li className={styles["lottery__list-item"]}>2 獎中獎機率為 3%</li>
         <li className={styles["lottery__list-item"]}>3 獎中獎機率為 13% </li>
@@ -46,7 +46,7 @@ export default function Lottery() {
         <li className={styles["lottery__list-item"]}>5 獎中獎機率為 25%</li>
       </ul>
       <p>如果有中獎機率代表有可能抽不到</p>
-      {/* <button className={styles["lottery__button"]} onClick={selectPrize}>
+      {/* <button className={styles.lottery__button} onClick={selectPrize}>
         抽獎
       </button> */}
       {!isDone && (
@@ -61,9 +61,9 @@ export default function Lottery() {
           <button onClick={handleReset}>重新抽獎</button>
         </>
       )}
-      {/* <ul className={styles["lottery__list"]}>
+      {/* <ul className={styles.lottery__list}>
         {selectedPrizes.map((prize, index) => (
-          <li className={styles["lottery__list-item"]} key={index}>
+          <li className={styles.lottery__list-item} key={index}>
             {prize.name}
           </li>
         ))}
