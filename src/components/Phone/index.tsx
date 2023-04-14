@@ -20,6 +20,7 @@ export default function Phone() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setText("");
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
