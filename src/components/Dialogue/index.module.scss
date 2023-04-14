@@ -1,0 +1,51 @@
+.dialogue {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+
+  &.active {
+    flex-direction: row-reverse;
+  }
+
+  &__headshot {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+  }
+
+  &__message {
+    position: relative;
+    flex: 1;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -10px;
+      width: 0;
+      height: 0;
+      border-bottom: 10px solid rgba(255, 255, 255, 0.2);
+      border-left: 10px solid transparent;
+    }
+
+    &.active {
+      height: 60px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 6px;
+
+      &::before {
+        left: auto;
+        right: -10px;
+        border-left: 0;
+        border-right: 10px solid transparent;
+      }
+    }
+  }
+}
