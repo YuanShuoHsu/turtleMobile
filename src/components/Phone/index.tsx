@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent, ChangeEvent } from "react";
+import { useState, useLayoutEffect, FormEvent, ChangeEvent } from "react";
 import styles from "./index.module.scss";
 import Dialogue from "../Dialogue";
 
@@ -6,17 +6,21 @@ export default function Phone() {
   const [time, setTime] = useState<string>("");
   const [text, setText] = useState<string>("");
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const now = new Date();
-      const hours = now.getHours().toString().padStart(2, "0");
-      const minutes = now.getMinutes().toString().padStart(2, "0");
-      const formattedTime = `${hours}:${minutes}`;
-      setTime(formattedTime);
-    }, 1000);
+  useLayoutEffect(() => {
+    updateTime();
+
+    const intervalId = setInterval(updateTime, 1000);
 
     return () => clearInterval(intervalId);
   }, []);
+
+  const updateTime = () => {
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, "0");
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    const formattedTime = `${hours}:${minutes}`;
+    setTime(formattedTime);
+  };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
