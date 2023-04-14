@@ -1,0 +1,46 @@
+.phone {
+  position: relative;
+  padding: 3px;
+  box-sizing: border-box;
+  width: 300px;
+  height: 600px;
+  background: #666;
+  border-radius: 50px;
+
+  &__inner {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 48px;
+
+    .phone__header {
+      width: 100%;
+      height: 48px;
+      background: rgba(255, 255, 200, 0.5);
+    }
+    .phone__main {
+      padding: 3px;
+      box-sizing: border-box;
+      width: 100%;
+      height: calc(100% - 96px);
+      background: rgba(255, 200, 255, 0.5);
+
+      &-box {
+        width: 100%;
+        height: 100%;
+        background: rgba(200, 255, 255, 0.5);
+      }
+    }
+  }
+
+  // &__header {
+  //   // position: absolute;
+  //   // top: 0;
+
+  //   width: 100%;
+  //   height: 80px;
+  //   background: rgba(255,255,200,0.5);
+  //   // border-radius: ;
+  //   z-index: 2;
+  // }
+}
