@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import styles from "./index.module.scss";
 import Dialogue from "../Dialogue";
 
 export default function Phone() {
   const [time, setTime] = useState<string>("");
+  const [text, setText] = useState<string>("");
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -17,8 +18,16 @@ export default function Phone() {
     return () => clearInterval(intervalId);
   }, []);
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+  };
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value);
+  };
+
   return (
-    <div className={styles.phone}>
+    <form onSubmit={handleSubmit} className={styles.phone}>
       <div className={styles.phone__power} />
       <div className={styles.phone__volume} />
       <div className={styles.phone__inner}>
@@ -89,6 +98,8 @@ export default function Phone() {
               <input
                 className={styles["phone__main-footer-input"]}
                 type="text"
+                value={text}
+                onChange={handleInputChange}
               />
               <button className={styles["phone__main-footer-button"]}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -99,6 +110,6 @@ export default function Phone() {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
