@@ -10,11 +10,25 @@ export default function Phone() {
             <div className={styles["phone__header-speaker-dot"]}></div>
             <div className={styles["phone__header-speaker-dot"]}></div>
             <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
+
+            <div className={styles["phone__header-speaker-dot"]}></div>
+            <div className={styles["phone__header-speaker-dot"]}></div>
           </div>
-          <div className={styles["phone__header-microphone"]}></div>
-          <div className={styles["phone__header-microphone"]}></div>
           <div className={styles["phone__header-camera"]}></div>
-          <div></div>
         </div>
         <div className={styles.phone__main}>
           <div className={styles["phone__main-box"]}>
