@@ -3,7 +3,7 @@
   padding: 3px;
   box-sizing: border-box;
   width: 300px;
-  height: 600px;
+  height: 560px;
   background: #666;
   border-radius: 50px;
 
@@ -15,20 +15,153 @@
 
     .phone__header {
       width: 100%;
-      height: 48px;
+      height: 40px;
       background: rgba(255, 255, 200, 0.5);
     }
     .phone__main {
       padding: 3px;
       box-sizing: border-box;
       width: 100%;
-      height: calc(100% - 96px);
+      height: calc(100% - 80px);
       background: rgba(255, 200, 255, 0.5);
 
       &-box {
         width: 100%;
         height: 100%;
         background: rgba(200, 255, 255, 0.5);
+        border-radius: 6px;
+
+        .phone__main-status {
+          padding: 0 30px;
+          width: 100%;
+          height: 20px;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .phone__main-signal {
+            height: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            svg {
+              fill: #fff;
+              width: 100%;
+              height: 100%;
+            }
+
+            &-text {
+              color: #fff;
+              font: normal normal normal 12px / normal sans-serif;
+              letter-spacing: 1px;
+            }
+          }
+
+          .phone__main-endurance {
+            height: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+
+            &-text {
+              color: #fff;
+              font: normal normal normal 12px / normal sans-serif;
+              letter-spacing: 1px;
+            }
+
+            svg {
+              fill: #fff;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+
+        .phone__main-menu {
+          padding: 0 25px;
+          height: 30px;
+          background: cadetblue;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .phone__main-bars {
+            padding: 5px;
+            box-sizing: border-box;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            cursor: pointer;
+
+            svg {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .phone__main-camera {
+            padding: 5px;
+            box-sizing: border-box;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 3px;
+            cursor: pointer;
+
+            svg {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+
+        .phone__main-contacts {
+          height: calc(100% - 20px - 30px - 30px);
+          background: antiquewhite;
+        }
+
+        .phone__main-footer {
+          padding: 0 20px;
+          height: 30px;
+          background: cadetblue;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+
+          &-input {
+            padding: 0 10px;
+            height: 20px;
+            flex: 1;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+          }
+
+          &-button {
+            padding: 2px;
+            width: 20px;
+            height: 20px;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            svg {
+              fill: #000;
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
       }
     }
   }

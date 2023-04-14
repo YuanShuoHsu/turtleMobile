@@ -1,6 +1,8 @@
 .chatroom {
   width: 100%;
-  height: calc(100vh - 60px);
+  padding: 10px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 60px);
   display: flex;
   justify-content: center;
   align-items: center;

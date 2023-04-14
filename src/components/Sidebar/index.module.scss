@@ -18,13 +18,14 @@
 
   &__list {
     margin: 0;
-    padding: 0;
+    padding: 5px;
+    box-sizing: border-box;
     width: 200px;
     height: 100%;
     background: #fff;
     list-style: none;
     overflow: hidden auto;
-    transition: transform 0.2s ease-out;
+    transition: 0.2s;
     transform: translateX(-200px);
 
     &.active {
@@ -32,10 +33,11 @@
     }
 
     .sidebar__item {
-      padding: 10px;
+      padding: 5px;
 
       .sidebar__link {
         text-decoration: none;
+        border-radius: 4px;
         color: #333;
         font: normal normal normal medium/40px sans-serif;
         letter-spacing: 1px;

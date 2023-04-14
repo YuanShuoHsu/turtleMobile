@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
 import logo from "../../images/logo.png";
+import { Link } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { showSidebar, hideSidebar } from "../../store/slice/sidebar";
@@ -16,11 +17,13 @@ export default function Header() {
       dispatch(showSidebar());
     }
   };
-  
+
   return (
     <div className={styles.header}>
       <div className={styles.header__logo}>
-        <img src={logo} alt="烏龜移動" />
+        <Link to="https://www.turtlemobile.com.tw/">
+          <img src={logo} alt="烏龜移動" />
+        </Link>
       </div>
       <div onClick={handleBarsToggle} className={styles.header__bars}>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">

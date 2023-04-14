@@ -25,7 +25,7 @@ export default function Sidebar({ menuItems }: SidebarProps) {
     }
   };
 
-  const handleItemClick = () => {
+  const handleLinkClick = () => {
     dispatch(hideSidebar());
   };
 
@@ -40,12 +40,12 @@ export default function Sidebar({ menuItems }: SidebarProps) {
         }`}
       >
         {menuItems.map((item) => (
-          <li
-            onClick={handleItemClick}
-            className={styles.sidebar__item}
-            key={item.path}
-          >
-            <NavLink className={styles.sidebar__link} to={item.path}>
+          <li className={styles.sidebar__item} key={item.path}>
+            <NavLink
+              onClick={handleLinkClick}
+              className={styles.sidebar__link}
+              to={item.path}
+            >
               {item.title}
             </NavLink>
           </li>
