@@ -16,6 +16,7 @@ export default function Header() {
     } else {
       dispatch(showSidebar());
     }
+    document.body.style.overflow = sidebarValue ? "auto" : "hidden";
   };
 
   return (

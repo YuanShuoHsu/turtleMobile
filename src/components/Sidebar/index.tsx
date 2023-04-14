@@ -19,14 +19,20 @@ export default function Sidebar({ menuItems }: SidebarProps) {
   const dispatch = useDispatch();
   const sidebarValue = useSelector((state: RootState) => state.sidebar.value);
 
+  const setBodyOverflow = (value: string) => {
+    document.body.style.overflow = value;
+  };
+
   const handleSidebarHide = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       dispatch(hideSidebar());
     }
+    setBodyOverflow(sidebarValue ? "auto" : "hidden");
   };
 
   const handleLinkClick = () => {
     dispatch(hideSidebar());
+    setBodyOverflow(sidebarValue ? "auto" : "hidden");
   };
 
   return (
