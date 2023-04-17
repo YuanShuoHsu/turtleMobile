@@ -1,308 +1,309 @@
 .phone {
-  position: relative;
-  padding: 3px;
-  box-sizing: border-box;
-  width: 300px;
-  height: 560px;
-  background: #666;
-  border-radius: 50px;
-
-  &:hover {
-    .phone__inner {
-      .phone__main {
-        &-box {
-          &::before {
-            background: transparent;
-            pointer-events: none;
+    position: relative;
+    padding: 3px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 560px;
+    background: #666;
+    border-radius: 50px;
+  
+    &:hover {
+      .phone__inner {
+        .phone__main {
+          &-box {
+            &::before {
+              background: transparent;
+              pointer-events: none;
+            }
           }
         }
       }
     }
-  }
-
-  &__power {
-    position: absolute;
-    top: 100px;
-    right: -2px;
-    width: 3px;
-    height: 40px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    background: radial-gradient(#ccc, #666, #222);
-  }
-
-  &__volume {
-    position: absolute;
-    top: 160px;
-    right: -2px;
-    width: 3px;
-    height: 120px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    background: radial-gradient(#ccc, #666, #222);
-  }
-
-  &__inner {
-    width: 100%;
-    height: 100%;
-    background: #000;
-    border-radius: 48px;
-
-    .phone__header {
-      padding: 0 80px;
-      box-sizing: border-box;
-      width: 100%;
+  
+    &__power {
+      position: absolute;
+      top: 100px;
+      right: -2px;
+      width: 3px;
       height: 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
-
-      &-receiver {
-        box-sizing: border-box;
-        width: 10px;
-        height: 10px;
-        background: #000;
-        border: 1px solid #666;
-        border-radius: 50%;
-      }
-
-      &-speaker {
-        position: relative;
-        box-sizing: border-box;
-        height: 10px;
-        background: #666;
-        border: 1px solid #000;
-        border-radius: 20px;
-        flex: 1;
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-
-        &::before {
-          position: absolute;
-          box-sizing: border-box;
-          right: -16px;
-          content: "";
-          width: 6px;
-          height: 6px;
-          background: #000;
-          border: 1px solid #666;
-          border-radius: 50%;
-        }
-
-        &::after {
-          position: absolute;
-          box-sizing: border-box;
-          right: -9px;
-          content: "";
-          width: 6px;
-          height: 6px;
-          background: #000;
-          border: 1px solid #666;
-          border-radius: 50%;
-        }
-
-        &-dot {
-          width: 2px;
-          height: 2px;
-          border-radius: 50%;
-          background: #000;
-        }
-      }
-
-      &-camera {
-        box-sizing: border-box;
-        width: 11px;
-        height: 11px;
-        background: #000;
-        border: 3px solid #666;
-        border-radius: 50%;
-      }
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background: radial-gradient(#ccc, #666, #222);
     }
-
-    .phone__main {
-      padding: 3px;
-      box-sizing: border-box;
+  
+    &__volume {
+      position: absolute;
+      top: 160px;
+      right: -2px;
+      width: 3px;
+      height: 120px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      background: radial-gradient(#ccc, #666, #222);
+    }
+  
+    &__inner {
       width: 100%;
-      height: calc(100% - 80px);
-
-      &-box {
-        position: relative;
+      height: 100%;
+      background: #000;
+      border-radius: 48px;
+  
+      .phone__header {
+        padding: 0 80px;
         box-sizing: border-box;
         width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.5);
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        overflow: hidden;
-
-        &::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          left: 0;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 25px;
+  
+        &-receiver {
+          box-sizing: border-box;
+          width: 10px;
+          height: 10px;
+          background: #000;
+          border: 1px solid #666;
+          border-radius: 50%;
+        }
+  
+        &-speaker {
+          position: relative;
+          box-sizing: border-box;
+          height: 10px;
+          background: #666;
+          border: 1px solid #000;
+          border-radius: 20px;
+          flex: 1;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+  
+          &::before {
+            position: absolute;
+            box-sizing: border-box;
+            right: -16px;
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: #000;
+            border: 1px solid #666;
+            border-radius: 50%;
+          }
+  
+          &::after {
+            position: absolute;
+            box-sizing: border-box;
+            right: -9px;
+            content: "";
+            width: 6px;
+            height: 6px;
+            background: #000;
+            border: 1px solid #666;
+            border-radius: 50%;
+          }
+  
+          &-dot {
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: #000;
+          }
+        }
+  
+        &-camera {
+          box-sizing: border-box;
+          width: 11px;
+          height: 11px;
+          background: #000;
+          border: 3px solid #666;
+          border-radius: 50%;
+        }
+      }
+  
+      .phone__main {
+        padding: 3px;
+        box-sizing: border-box;
+        width: 100%;
+        height: calc(100% - 80px);
+  
+        &-box {
+          position: relative;
+          box-sizing: border-box;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.2);
-          z-index: 1;
-          transition: 0.2s;
-        }
-
-        .phone__main-status {
-          box-sizing: border-box;
-          padding: 0 30px;
-          width: 100%;
-          height: 20px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          .phone__main-signal,
-          .phone__main-endurance {
+          background: rgba(255, 255, 255, 0.5);
+          border: 1px solid #ccc;
+          border-radius: 6px;
+          overflow: hidden;
+  
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            transition: 0.2s;
+          }
+  
+          .phone__main-status {
+            box-sizing: border-box;
+            padding: 0 30px;
+            width: 100%;
+            height: 20px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 5px;
-
-            .phone__main-svg-container {
-              width: 10px;
-              height: 10px;
+  
+            .phone__main-signal,
+            .phone__main-endurance {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+  
+              .phone__main-svg-container {
+                width: 10px;
+                height: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+  
+                svg {
+                  fill: #fff;
+                  width: 100%;
+                  height: 100%;
+                }
+              }
+  
+              &-text {
+                color: #fff;
+                font: normal normal normal 12px / normal sans-serif;
+                letter-spacing: 1px;
+              }
+            }
+          }
+  
+          .phone__main-menu {
+            padding: 0 25px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+  
+            .phone__main-bars {
+              padding: 5px;
+              box-sizing: border-box;
+              width: 25px;
+              height: 25px;
               display: flex;
               justify-content: center;
               align-items: center;
-
+              border-radius: 3px;
+              cursor: pointer;
+              transition: 0.2s;
+  
+              &:hover {
+                opacity: 0.8;
+              }
+  
               svg {
-                fill: #fff;
+                fill: #666;
                 width: 100%;
                 height: 100%;
+                stroke-width: 10px;
+                stroke: #000;
               }
             }
-
-            &-text {
-              color: #fff;
-              font: normal normal normal 12px / normal sans-serif;
+  
+            .phone__main-camera {
+              padding: 5px;
+              box-sizing: border-box;
+              width: 25px;
+              height: 25px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 3px;
+              cursor: pointer;
+              transition: 0.2s;
+  
+              &:hover {
+                opacity: 0.8;
+              }
+  
+              svg {
+                fill: #666;
+                width: 100%;
+                height: 100%;
+                stroke-width: 10px;
+                stroke: #000;
+              }
+            }
+          }
+  
+          .phone__main-contacts {
+            box-sizing: border-box;
+            padding: 20px;
+            height: calc(100% - 20px - 30px - 30px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+          }
+  
+          .phone__main-footer {
+            padding: 0 20px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+  
+            &-input {
+              padding: 0 10px;
+              width: calc(100% - 20px);
+              height: 20px;
+              border: none;
+              border-radius: 20px;
+              outline: none;
               letter-spacing: 1px;
             }
-          }
-        }
-
-        .phone__main-menu {
-          padding: 0 25px;
-          height: 30px;
-          background: rgba(255, 255, 255, 0.2);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          .phone__main-bars {
-            padding: 5px;
-            box-sizing: border-box;
-            width: 25px;
-            height: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: 0.2s;
-
-            &:hover {
-              opacity: 0.8;
-            }
-
-            svg {
-              fill: #666;
-              width: 100%;
-              height: 100%;
-              stroke-width: 10px;
-              stroke: #000;
-            }
-          }
-
-          .phone__main-camera {
-            padding: 5px;
-            box-sizing: border-box;
-            width: 25px;
-            height: 25px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 3px;
-            cursor: pointer;
-            transition: 0.2s;
-
-            &:hover {
-              opacity: 0.8;
-            }
-
-            svg {
-              fill: #666;
-              width: 100%;
-              height: 100%;
-              stroke-width: 10px;
-              stroke: #000;
-            }
-          }
-        }
-
-        .phone__main-contacts {
-          box-sizing: border-box;
-          padding: 20px;
-          height: calc(100% - 20px - 30px - 30px);
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-
-        .phone__main-footer {
-          padding: 0 20px;
-          box-sizing: border-box;
-          width: 100%;
-          height: 30px;
-          background: rgba(255, 255, 255, 0.2);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          gap: 10px;
-
-          &-input {
-            padding: 0 10px;
-            width: calc(100% - 20px);
-            height: 20px;
-            border: none;
-            border-radius: 20px;
-            outline: none;
-            letter-spacing: 1px;
-          }
-
-          &-button {
-            padding: 2px;
-            box-sizing: border-box;
-            min-width: 20px;
-            max-width: 20px;   
-            height: 20px;
-            border: none;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.2s;
-
-            &:hover {
-              opacity: 0.8;
-            }
-
-            svg {
-              fill: #666;
-              width: 100%;
-              height: 100%;
-              stroke-width: 10px;
-              stroke: #000;
+  
+            &-button {
+              padding: 2px;
+              box-sizing: border-box;
+              min-width: 20px;
+              max-width: 20px;   
+              height: 20px;
+              border: none;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              transition: 0.2s;
+  
+              &:hover {
+                opacity: 0.8;
+              }
+  
+              svg {
+                fill: #666;
+                width: 100%;
+                height: 100%;
+                stroke-width: 10px;
+                stroke: #000;
+              }
             }
           }
         }
       }
     }
   }
-}
+  

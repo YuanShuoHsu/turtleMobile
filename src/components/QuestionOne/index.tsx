@@ -1,7 +1,7 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./index.module.scss";
 
-export default function Calculator() {
+export default function QuestionOne() {
   const [n, setN] = useState<string>("");
   const [sum, setSum] = useState<number | null>(null);
 
@@ -45,38 +45,38 @@ const calculateSum = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.calculator}>
-      <h2 className={styles.calculator__title}>Calculator</h2>
-      <p className={styles.calculator__description}>
+    <form onSubmit={handleSubmit} className={styles.questionOne}>
+      <h2 className={styles.questionOne__title}>Calculator</h2>
+      <p className={styles.questionOne__description}>
         寫一個函式計算下列公式之總和：
       </p>
-      <p className={styles.calculator__formula}>
+      <p className={styles.questionOne__formula}>
         1+2-3+4-5+6-......+或-N
       </p>
-      <p className={styles.calculator__note}>（N 會是正整數）</p>
-      <pre className={styles.calculator__code}>
-        <code className={styles["calculator__code-text"]}>{answer}</code>
+      <p className={styles.questionOne__note}>（N 會是正整數）</p>
+      <pre className={styles.questionOne__code}>
+        <code className={styles["questionOne__code-text"]}>{answer}</code>
       </pre>
-      <div className={styles["calculator__input-group"]}>
-        <label className={styles.calculator__label} htmlFor="N-input">
+      <div className={styles["questionOne__input-group"]}>
+        <label className={styles.questionOne__label} htmlFor="N-input">
           N：
         </label>
-        <div className={styles["calculator__input-group-inner"]}>
+        <div className={styles["questionOne__input-group-inner"]}>
           <input
-            className={styles.calculator__input}
+            className={styles.questionOne__input}
             type="text"
             id="N-input"
             value={n}
             placeholder="請輸入正整數"
             onChange={handleInputChange}
           />
-          <button className={styles.calculator__button} type="submit">
+          <button className={styles.questionOne__button} type="submit">
             {"計算"}
           </button>
         </div>
       </div>
       {sum !== null && (
-        <p className={styles.calculator__result}>總和：{sum}</p>
+        <p className={styles.questionOne__result}>總和：{sum}</p>
       )}
     </form>
   );
