@@ -13,20 +13,6 @@
     }
   }
 
-  &__button {
-    padding: 0 10px;
-    width: 100px;
-    height: 40px;
-    background: #389344;
-    border-radius: 4px;
-    border: none;
-    color: #fff;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: 0.2s;
-
-    &:hover {
-      opacity: 0.8;
-    }
+  &__note {
   }
 }
