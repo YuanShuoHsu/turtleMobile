@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react";
+import { useState } from "react";
 import styles from "./index.module.scss";
 
 interface Prize {
@@ -27,9 +27,7 @@ export default function Raffle() {
     { prize: number; avail: string }[]
   >([]);
 
-  const handleLottery = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
+  const handleLottery = () => {
     if (availablePrizes.length === 0) {
       alert("禮物已經抽完");
       return;
@@ -50,9 +48,21 @@ export default function Raffle() {
     setSelectedPrizes(newSelectedPrizes);
   };
 
+  const handleReset = () => {
+    setSelectedPrizes([]);
+    setAvailablePrizes(initialAvailablePrizes);
+  };
+
   return (
-    <form onSubmit={handleLottery} className={styles.raffle}>
-      <button className={styles.raffle__button}>抽獎</button>
+    <div className={styles.raffle}>
+      <div className={styles.raffle__buttonGroup}>
+        <button onClick={handleLottery} className={styles.raffle__button}>
+          抽獎
+        </button>
+        <button onClick={handleReset} className={styles.raffle__button}>
+          重抽
+        </button>
+      </div>
       <ul className={styles.raffle__list}>
         {selectedPrizes.map((element) => (
           <li
@@ -63,6 +73,6 @@ export default function Raffle() {
           } 目前尚未抽取的獎勵為 [ ${element.avail} ]`}</li>
         ))}
       </ul>
-    </form>
+    </div>
   );
 }
